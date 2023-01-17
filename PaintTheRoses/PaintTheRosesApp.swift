@@ -11,7 +11,7 @@ import SwiftUI
 struct PaintTheRosesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(homeVM: HomeViewModelImp())
         }
     }
 }
