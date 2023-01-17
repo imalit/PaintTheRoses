@@ -28,12 +28,12 @@ struct PlayerView<ViewModel>: View where ViewModel: PlayerViewModel {
         .onDisappear{
             playerVM.sendPlayerDetails()
         }
-        .onAppear {
-            if playerVM.player == nil {
-                playerVM.loadData(service: GameService())
-                print(playerVM.gameObject)
-            }
-        }
+//        .onAppear {
+//            if playerVM.player == nil {
+//                playerVM.loadData(service: GameService())
+//                print(playerVM.gameObject)
+//            }
+//        }
     }
 }
 
