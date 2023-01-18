@@ -29,7 +29,7 @@ struct ContentView<ViewModel>: View where ViewModel: HomeViewModel {
                     }
                 }
                 .onDelete(perform: { indexSet in
-                    homeVM.players.remove(atOffsets: indexSet)
+                    homeVM.delete(indexSet: indexSet)
                 })
                 Button("Add Player") {
                     id = nil

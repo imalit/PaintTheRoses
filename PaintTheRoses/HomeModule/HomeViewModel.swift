@@ -11,6 +11,7 @@ import SwiftUI
 protocol HomeViewModel: ObservableObject {
     var players: [Player] { get set }
     func newGame()
+    func delete(indexSet: IndexSet)
     
     associatedtype ViewModel: PlayerViewModel
     func navigateToPlayer(id: UUID?) -> PlayerView<ViewModel>
@@ -30,6 +31,12 @@ class HomeViewModelImp: HomeViewModel {
             self?.updatePlayer(player: player)
         }
         return PlayerView(playerVM: playerVM)
+    }
+    
+    func delete(indexSet: IndexSet) {
+        print(indexSet.first)
+        print(Int(indexSet.first?.description ?? "") ?? 0)
+        players.remove(atOffsets: indexSet)
     }
     
     private func updatePlayer(player: Player) {
