@@ -10,82 +10,95 @@ import Combine
 import SwiftUI
 
 protocol PlayerViewModel: ObservableObject {
-//    var numOfGrids: Int { get set }
-//    var dimOfGrid: [(Int, Int)] { get set }
-    var player: Player? { get set }
-//    var gameObject: Game { get set }
+    
     var name: String { get set }
     var difficultyMode: GameMode { get set }
-    var setPlayerDetails: ((String, GameMode)->Void)? { get set }
+    var gameObject: Game { get set }
+    
+    var setPlayerDetails: ((Player)->Void)? { get set }
+    var player: Player? { get set }
+    
     func sendPlayerDetails()
-//    func loadData(service: Service)
+    func loadData(service: Service)
+    func displayGrid() -> [Detail]?
 }
 
 class PlayerViewModelImp: PlayerViewModel {
+    @Published var gameObject = Game()
     @Published var name: String = ""
-    @Published var difficultyMode: GameMode = .easy
-//    @Published var numOfGrids = 1
-//    @Published var dimOfGrid: [(Int, Int)] = []
-    var setPlayerDetails: ((String, GameMode) -> Void)? = nil
-    var gameObject = Game()
-    var player: Player?
-    private var cancellable: AnyCancellable?
-    
-    init(player: Player?) {
-        if let player {
-            self.player = player
-            self.name = player.name
-            self.difficultyMode = player.gameMode
+    @Published var difficultyMode: GameMode = .easy {
+        didSet {
+            if oldValue != difficultyMode {
+                didChangeGrid = true
+            }
         }
     }
     
-    func sendPlayerDetails() {
-        setPlayerDetails?(name, difficultyMode)
+    var setPlayerDetails: ((Player) -> Void)? = nil
+    var player: Player?
+    
+    private var cancellable: AnyCancellable?
+    private var grid: [Detail]? = nil
+    private var didChangeGrid: Bool = false
+    
+    init(id: UUID?) {
+        if let id = id {
+            player = Players.getPlayer(id: id)
+            if let player = player {
+                self.name = player.name
+                self.difficultyMode = player.gameMode
+                self.grid = player.grid
+            }
+        }
     }
     
-//    func drawGrids() -> some View {
-//        switch difficultyMode {
-//        case .easy:
-//            numOfGrids = 1
-//        case .medium:
-//            numOfGrids = 2
-//        case .hard:
-//            numOfGrids = 1
-//
-//        }
-//    }
+    func displayGrid() -> [Detail]? {
+        if player == nil || didChangeGrid {
+            grid = updateGridList()
+            return grid
+        } else {
+            return player?.grid
+        }
+    }
     
-//    private func calculateGridDimensions(mode: GameMode) -> [(Int, Int)] {
-//        guard let GOmode = gameObject.mode else { return [] }
-//        var combination = GOmode.easy
-//        let result: [(Int, Int)] = []
-//
-//        switch mode {
-//        case .easy:
-//            combination = GOmode.easy // [(4,4)]; color x color
-//        case .medium:
-//            combination = GOmode.medium // [(4,4), (4,4)]; color x color, shape x shape
-//        case .hard:
-//            combination = GOmode.hard // [(8,8)]; color x color, shape x shape, color x shape
-//        }
-//
-//        for index in (0..<numOfGrids) {
-//            let singleCombo = combination[index]
-//            let top = singleCombo.top
-//            let side = singleCombo.side
-//
-//
-//        }
-//    }
+    private func updateGridList() -> [Detail]? {
+        var detail: [Detail]? = nil
+        
+        switch difficultyMode {
+        case .easy:
+            detail = gameObject.mode?.easy
+        case .medium:
+            detail = gameObject.mode?.medium
+        case .hard:
+            detail = gameObject.mode?.hard
+        }
+        
+        player?.grid = detail
+        grid = detail
+        return detail
+    }
     
-//    func loadData(service: Service) {
-//        cancellable = service.fetchData()
-//            .sink(
-//                receiveCompletion: { _ in },
-//                receiveValue: { game in
-//                    self.gameObject = game
-//                    print(self.gameObject)
-//                }
-//            )
-//    }
+    func sendPlayerDetails() {
+        if var player = player {
+            player.name = name
+            player.gameMode = difficultyMode
+            player.grid = grid
+            setPlayerDetails?(player)
+        } else {
+            var player = Player(name: name, gameMode: difficultyMode)
+            player.grid = grid
+            setPlayerDetails?(player)
+        }
+    }
+
+    func loadData(service: Service) {
+        cancellable = service.fetchData()
+            .receive(on: RunLoop.main)
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { game in
+                    self.gameObject = game
+                }
+            )
+    }
 }

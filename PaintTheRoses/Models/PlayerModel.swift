@@ -11,6 +11,7 @@ struct Player: Identifiable {
     var id: UUID
     var name: String
     var gameMode: GameMode
+    var grid: [Detail]? = nil
     
     init(name: String, gameMode: GameMode) {
         self.id = UUID()

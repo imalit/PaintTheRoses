@@ -24,22 +24,37 @@ struct PlayerView<ViewModel>: View where ViewModel: PlayerViewModel {
                 }
                 .padding([.trailing])
             }
+            ScrollView {
+                if let gridList = playerVM.displayGrid() {
+                    VStack {
+                        ForEach(gridList) { grid in
+                            VStack (alignment: .leading) {
+                                let attributes = grid.attributes
+                                ForEach(attributes.indices, id: \.self) { index in
+                                    HStack {
+                                        ForEach(index..<attributes.count, id: \.self) { item in
+                                            Text(" |\(attributes[index]),\(attributes[item])")
+                                        }
+                                    }
+                                }
+                            }
+                        }.padding()
+                    }
+                }
+            }
         }
         .onDisappear{
             playerVM.sendPlayerDetails()
         }
-//        .onAppear {
-//            if playerVM.player == nil {
-//                playerVM.loadData(service: GameService())
-//                print(playerVM.gameObject)
-//            }
-//        }
+        .onAppear {
+            playerVM.loadData(service: GameService())
+        }
     }
 }
 
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        let playerVM = PlayerViewModelImp(player: nil)
+        let playerVM = PlayerViewModelImp(id: nil)
         PlayerView(playerVM: playerVM)
     }
 }

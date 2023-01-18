@@ -47,8 +47,7 @@ struct ContentView<ViewModel>: View where ViewModel: HomeViewModel {
         onDismiss: {
             playerViewDisplayed = false
         }, content: {
-            let player = homeVM.getPlayer(id: id)
-            homeVM.navigateToPlayer(player: player)
+            homeVM.navigateToPlayer(id: id)
         })        
     }
 }

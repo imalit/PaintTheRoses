@@ -11,10 +11,9 @@ import SwiftUI
 protocol HomeViewModel: ObservableObject {
     var players: [Player] { get set }
     func newGame()
-    func getPlayer(id: UUID?) -> Player?
     
     associatedtype ViewModel: PlayerViewModel
-    func navigateToPlayer(player: Player?) -> PlayerView<ViewModel>
+    func navigateToPlayer(id: UUID?) -> PlayerView<ViewModel>
 }
 
 class HomeViewModelImp: HomeViewModel {
@@ -22,38 +21,30 @@ class HomeViewModelImp: HomeViewModel {
     
     func addPlayer(name: String, gameMode: GameMode) {
         let player = Player(name: name, gameMode: gameMode)
+        Players.players.append(player)
         players.append(player)
     }
     
-    func updatePlayer(player: Player, name: String, gameMode: GameMode) {
+    func updatePlayer(player: Player) {
         if let row = self.players.firstIndex(where: {$0.id == player.id}) {
-            var player = players[row]
-            player.name = name
-            player.gameMode = gameMode
             players[row] = player
+        } else {
+            players.append(player)
         }
+        Players.updatePlayers(player: player)
     }
     
     func newGame() {
         players = []
+        Players.players = []
     }
     
-    func getPlayer(id: UUID?) -> Player? {
-        guard let player = players.first(where: {
-            $0.id == id
-        }) else { return nil }
-        return player
-    }
-    
-    func navigateToPlayer(player: Player?) -> PlayerView<some PlayerViewModel> {
-        let playerVM = PlayerViewModelImp(player: player)
-        playerVM.setPlayerDetails = { [weak self] name, mode in
-            if let player = player {
-                self?.updatePlayer(player: player, name: name, gameMode: mode)
-            } else {
-                self?.addPlayer(name: name, gameMode: mode)
-            }
+    func navigateToPlayer(id: UUID?) -> PlayerView<some PlayerViewModel> {
+        let playerVM = PlayerViewModelImp(id: id)
+        playerVM.setPlayerDetails = { [weak self] player in
+            self?.updatePlayer(player: player)
         }
+        
         return PlayerView(playerVM: playerVM)
     }
 }
