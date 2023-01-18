@@ -19,21 +19,6 @@ protocol HomeViewModel: ObservableObject {
 class HomeViewModelImp: HomeViewModel {
     @Published var players = [Player]()
     
-    func addPlayer(name: String, gameMode: GameMode) {
-        let player = Player(name: name, gameMode: gameMode)
-        Players.players.append(player)
-        players.append(player)
-    }
-    
-    func updatePlayer(player: Player) {
-        if let row = self.players.firstIndex(where: {$0.id == player.id}) {
-            players[row] = player
-        } else {
-            players.append(player)
-        }
-        Players.updatePlayers(player: player)
-    }
-    
     func newGame() {
         players = []
         Players.players = []
@@ -44,7 +29,15 @@ class HomeViewModelImp: HomeViewModel {
         playerVM.setPlayerDetails = { [weak self] player in
             self?.updatePlayer(player: player)
         }
-        
         return PlayerView(playerVM: playerVM)
+    }
+    
+    private func updatePlayer(player: Player) {
+        if let row = self.players.firstIndex(where: {$0.id == player.id}) {
+            players[row] = player
+        } else {
+            players.append(player)
+        }
+        Players.updatePlayers(player: player)
     }
 }
