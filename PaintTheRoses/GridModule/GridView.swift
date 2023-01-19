@@ -23,16 +23,21 @@ struct GridView<ViewModel>: View where ViewModel: GridViewModel {
                         VStack (alignment: .leading) {
                             HStack {
                                 ForEach(reversed.indices, id: \.self) { x in
-                                    Text("\(reversed[x])")
+                                    Image("\(reversed[x])")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
                                         .frame(width: 35)
-                                        .foregroundColor(.black)
                                 }
                             }
                             .padding([.leading])
                             
                             ForEach(reversed.indices, id: \.self) { x in
                                 HStack {
-                                    Text("\(attributes[x])")
+                                    Image("\(attributes[x])")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 35)
+
                                     ForEach(0..<attributes.count-x, id: \.self) { y in
                                         Button(action: {
                                             gridVM.tileTapped(x: x, y: y, z: gridNum)
