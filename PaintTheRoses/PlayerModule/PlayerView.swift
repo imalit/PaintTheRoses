@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlayerView<ViewModel>: View where ViewModel: PlayerViewModel {
+struct PlayerView<ViewModel: PlayerViewModel>: View {
     
     @ObservedObject var playerVM: ViewModel
     @State var mode: GameMode = .easy
@@ -17,31 +17,18 @@ struct PlayerView<ViewModel>: View where ViewModel: PlayerViewModel {
             HStack {
                 TextField("Enter Player Name", text: $playerVM.name)
                     .padding([.leading])
+                    .font(.title)
                 Picker("Mode", selection: $playerVM.difficultyMode) {
                     Text("Easy").tag(GameMode.easy)
                     Text("Medium").tag(GameMode.medium)
                     Text("Hard").tag(GameMode.hard)
                 }
                 .padding([.trailing])
-            }
-            ScrollView {
-                if let gridList = playerVM.displayGrid() {
-                    VStack {
-                        ForEach(gridList) { grid in
-                            VStack (alignment: .leading) {
-                                let attributes = grid.attributes
-                                ForEach(attributes.indices, id: \.self) { index in
-                                    HStack {
-                                        ForEach(index..<attributes.count, id: \.self) { item in
-                                            Text(" |\(attributes[index]),\(attributes[item])")
-                                        }
-                                    }
-                                }
-                            }
-                        }.padding()
-                    }
-                }
-            }
+            }.padding([.top, .bottom])
+            Spacer()
+            AnyView(playerVM.displayGridView())
+            Spacer()
+            AnyView(playerVM.displayTileStatesView())
         }
         .onDisappear{
             playerVM.sendPlayerDetails()

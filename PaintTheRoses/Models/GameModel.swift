@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum TileState: String, CaseIterable {
+    case empty, no, maybe, yes
+}
+
 enum GameMode: String, CaseIterable {
     case easy, medium, hard
 }

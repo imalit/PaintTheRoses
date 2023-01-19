@@ -34,9 +34,8 @@ class HomeViewModelImp: HomeViewModel {
     }
     
     func delete(indexSet: IndexSet) {
-        print(indexSet.first)
-        print(Int(indexSet.first?.description ?? "") ?? 0)
         players.remove(atOffsets: indexSet)
+        Players.removePlayers(atOffsets: indexSet)
     }
     
     private func updatePlayer(player: Player) {

@@ -10,6 +10,11 @@ import Combine
 import SwiftUI
 
 protocol PlayerViewModel: ObservableObject {
+    associatedtype GridVM: GridViewModel
+    func displayGridView() -> GridView<GridVM>
+    
+    associatedtype TileStatesVM: TileStatesViewModel
+    func displayTileStatesView() -> TileStatesView<TileStatesVM>
     
     var name: String { get set }
     var difficultyMode: GameMode { get set }
@@ -24,6 +29,7 @@ protocol PlayerViewModel: ObservableObject {
 }
 
 class PlayerViewModelImp: PlayerViewModel {
+    
     @Published var gameObject = Game()
     @Published var name: String = ""
     @Published var difficultyMode: GameMode = .easy {
@@ -41,6 +47,9 @@ class PlayerViewModelImp: PlayerViewModel {
     private var grid: [Detail]? = nil
     private var didChangeGrid: Bool = false
     
+    private var point: GridPoint? = nil
+    private var pointState: TileState? = nil
+    
     init(id: UUID?) {
         if let id = id {
             player = Players.getPlayer(id: id)
@@ -50,6 +59,27 @@ class PlayerViewModelImp: PlayerViewModel {
                 self.grid = player.grid
             }
         }
+    }
+    
+    func displayGridView() -> GridView<some GridViewModel> {
+        let viewModel = GridViewModelImp(grid: displayGrid())
+        viewModel.tappedGridPoint = { point in
+            print("before tapping grid: \(self.point), state is \(self.pointState)")
+            self.point = point
+            self.pointState = nil
+            print("after tapping grid: \(self.point), state is \(self.pointState)")
+        }
+        return GridView(gridVM: viewModel)
+    }
+    
+    func displayTileStatesView() -> TileStatesView<some TileStatesViewModel> {
+        let viewModel = TileStatesViewModelImp()
+        viewModel.tappedState = { tileState in
+            print("before tapping State: \(self.point), state is \(self.pointState)")
+            self.pointState = tileState
+            print("after tapping State: \(self.point), state is \(self.pointState)")
+        }
+        return TileStatesView(tileStatesVM: viewModel)
     }
     
     func displayGrid() -> [Detail]? {

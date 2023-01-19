@@ -28,4 +28,8 @@ struct Players {
             players.append(player)
         }
     }
+    
+    static func removePlayers(atOffsets: IndexSet) {
+        players.remove(atOffsets: atOffsets)
+    }
 }
