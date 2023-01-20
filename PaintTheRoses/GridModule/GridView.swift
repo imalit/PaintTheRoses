@@ -29,7 +29,7 @@ struct GridView<ViewModel>: View where ViewModel: GridViewModel {
                                         .frame(width: 35)
                                 }
                             }
-                            .padding([.leading])
+                            .padding([.leading], 42)
                             
                             ForEach(reversed.indices, id: \.self) { x in
                                 HStack {
@@ -43,17 +43,17 @@ struct GridView<ViewModel>: View where ViewModel: GridViewModel {
                                             gridVM.tileTapped(x: x, y: y, z: gridNum)
                                         }) {
                                             ZStack {
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .foregroundColor(.gray)
-                                                Text("\(reversed[y])\(attributes[x])")
-                                                    .foregroundColor(.black)
+                                                Rectangle()
+                                                    .strokeBorder(.gray , lineWidth: 1)
+                                                gridVM.displayState(x: x, y: y, z: gridNum)
                                             }
                                         }.frame(width: 35, height: 35)
                                     }
                                 }
                             }
                         }
-                    }.padding()
+                    }
+                    .padding()
                 }
             }
         }

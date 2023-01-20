@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Constants {
     static let url = "https://imalit.github.io/source/painttheroses.json"
+    static let mintGreen = Color(
+        uiColor: UIColor(red: 203/256, green: 255/256, blue: 210/256, alpha: 1)
+    )
 }
 
 struct Players {

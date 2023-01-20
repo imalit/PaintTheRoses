@@ -49,6 +49,7 @@ class PlayerViewModelImp: PlayerViewModel {
     
     private var point: GridPoint? = nil
     private var pointState: TileState? = nil
+    private var gridViewModel = GridViewModelImp(grid: [])
     
     init(id: UUID?) {
         if let id = id {
@@ -62,22 +63,19 @@ class PlayerViewModelImp: PlayerViewModel {
     }
     
     func displayGridView() -> GridView<some GridViewModel> {
-        let viewModel = GridViewModelImp(grid: displayGrid())
-        viewModel.tappedGridPoint = { point in
-            print("before tapping grid: \(self.point), state is \(self.pointState)")
+        gridViewModel = GridViewModelImp(grid: displayGrid())
+        gridViewModel.tappedGridPoint = { point in
             self.point = point
             self.pointState = nil
-            print("after tapping grid: \(self.point), state is \(self.pointState)")
         }
-        return GridView(gridVM: viewModel)
+        return GridView(gridVM: gridViewModel)
     }
     
     func displayTileStatesView() -> TileStatesView<some TileStatesViewModel> {
         let viewModel = TileStatesViewModelImp()
         viewModel.tappedState = { tileState in
-            print("before tapping State: \(self.point), state is \(self.pointState)")
             self.pointState = tileState
-            print("after tapping State: \(self.point), state is \(self.pointState)")
+            self.gridViewModel.didTapStateOnTile(state: tileState)
         }
         return TileStatesView(tileStatesVM: viewModel)
     }
