@@ -24,11 +24,14 @@ struct PlayerView<ViewModel: PlayerViewModel>: View {
                     Text("Hard").tag(GameMode.hard)
                 }
                 .padding([.trailing])
-            }.padding([.top, .bottom])
+            }.padding([.top],50)
             Spacer()
-            AnyView(playerVM.displayGridView())
+            ZStack {
+                Constants.mintGreen
+                AnyView(playerVM.displayGridView())
+            }.padding([.top, .bottom], 50)
             Spacer()
-            AnyView(playerVM.displayTileStatesView())
+            AnyView(playerVM.displayTileStatesView()).padding([.bottom], 50)
         }
         .onDisappear{
             playerVM.sendPlayerDetails()

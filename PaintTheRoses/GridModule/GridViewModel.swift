@@ -14,7 +14,7 @@ protocol GridViewModel: ObservableObject {
     var markedTiles: [GridPoint : TileState] { get set }
     func tileTapped(x: Int, y:Int, z: Int)
     func didTapStateOnTile(state: TileState)
-    func displayState(x: Int, y: Int, z: Int) -> Text?
+    func displayState(x: Int, y: Int, z: Int) -> Color
 }
 
 class GridViewModelImp: GridViewModel {
@@ -36,16 +36,29 @@ class GridViewModelImp: GridViewModel {
     
     func didTapStateOnTile(state: TileState) {
         if let tappedPoint = tappedPoint {
-            markedTiles[tappedPoint] = state
+            if state == .empty {
+                markedTiles.removeValue(forKey: tappedPoint)
+            } else {
+                markedTiles[tappedPoint] = state
+            }
         }
     }
     
-    func displayState(x: Int, y: Int, z: Int) -> Text? {
+    func displayState(x: Int, y: Int, z: Int) -> Color {
         let point = GridPoint(x: x, y: y, z: z)
         if let state = markedTiles[point] {
-            return Text("\(state.rawValue)").foregroundColor(.black)
+            switch state {
+            case .no:
+                return Constants.red
+            case .yes:
+                return Constants.green
+            case .maybe:
+                return Constants.yellow
+            default:
+                return Constants.mintGreen
+            }
         }
-        return nil
+        return Constants.mintGreen
     }
 }
 

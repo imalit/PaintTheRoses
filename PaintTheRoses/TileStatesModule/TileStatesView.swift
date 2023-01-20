@@ -18,7 +18,10 @@ struct TileStatesView<ViewModel>: View where ViewModel: TileStatesViewModel {
                     tileStatesVM.buttonTapped(state: tileState)
                 }) {
                     ZStack {
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(Constants.mintGreen)
+                        RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(.gray, lineWidth: 1)
                         Text("\(tileState.rawValue)").foregroundColor(.black)
                     }
                 }
