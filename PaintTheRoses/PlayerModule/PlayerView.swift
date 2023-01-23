@@ -43,7 +43,7 @@ struct PlayerView<ViewModel: PlayerViewModel>: View {
         .onAppear {
             playerVM.loadData(service: GameService())
         }
-        .keyboardAdaptive()
+        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }
 
