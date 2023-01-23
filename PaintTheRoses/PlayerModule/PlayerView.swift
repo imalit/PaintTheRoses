@@ -26,12 +26,16 @@ struct PlayerView<ViewModel: PlayerViewModel>: View {
                 .padding([.trailing])
             }.padding([.top],50)
             Spacer()
-            ZStack {
-                Constants.mintGreen
-                AnyView(playerVM.displayGridView())
-            }.padding([.top, .bottom], 50)
+            GridView(
+                gridVM: playerVM.getGridViewModel()
+            )
+            .padding([.top, .bottom], 50)
+            .background(Constants.mintGreen)
             Spacer()
-            AnyView(playerVM.displayTileStatesView()).padding([.bottom], 50)
+            TileStatesView(
+                tileStatesVM: playerVM.getTileStatesViewModel()
+            )
+            .padding([.bottom], 50)
         }
         .onDisappear{
             playerVM.sendPlayerDetails()

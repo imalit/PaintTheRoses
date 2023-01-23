@@ -24,7 +24,12 @@ class GridViewModelImp: GridViewModel {
     var tappedGridPoint: ((GridPoint) -> ())? = nil
     private var tappedPoint: GridPoint? = nil
     
-    init(grid: [Detail]?) {
+    init(grid: [Detail]?, selections: [GridPoint : TileState]) {
+        self.grid = grid
+        markedTiles = selections
+    }
+    
+    func reset(grid: [Detail]?) {
         self.grid = grid
     }
     

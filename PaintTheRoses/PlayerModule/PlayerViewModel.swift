@@ -10,11 +10,8 @@ import Combine
 import SwiftUI
 
 protocol PlayerViewModel: ObservableObject {
-    associatedtype GridVM: GridViewModel
-    func displayGridView() -> GridView<GridVM>
-    
-    associatedtype TileStatesVM: TileStatesViewModel
-    func displayTileStatesView() -> TileStatesView<TileStatesVM>
+    func getGridViewModel() -> GridViewModelImp
+    func getTileStatesViewModel() -> TileStatesViewModelImp
     
     var name: String { get set }
     var difficultyMode: GameMode { get set }
@@ -49,7 +46,8 @@ class PlayerViewModelImp: PlayerViewModel {
     
     private var point: GridPoint? = nil
     private var pointState: TileState? = nil
-    private var gridViewModel = GridViewModelImp(grid: [])
+    private var gridViewModel = GridViewModelImp(grid: [], selections: [:])
+    private var selections: [GridPoint : TileState] = [:]
     
     init(id: UUID?) {
         if let id = id {
@@ -58,31 +56,31 @@ class PlayerViewModelImp: PlayerViewModel {
                 self.name = player.name
                 self.difficultyMode = player.gameMode
                 self.grid = player.grid
+                self.selections = player.selections
+                self.didChangeGrid = false
             }
         }
     }
     
-    func displayGridView() -> GridView<some GridViewModel> {
-        gridViewModel = GridViewModelImp(grid: displayGrid())
-        gridViewModel.tappedGridPoint = { point in
-            self.point = point
-            self.pointState = nil
-        }
-        return GridView(gridVM: gridViewModel)
+    func getGridViewModel() -> GridViewModelImp {
+        gridViewModel = GridViewModelImp(grid: displayGrid(), selections: selections)
+        return gridViewModel
     }
     
-    func displayTileStatesView() -> TileStatesView<some TileStatesViewModel> {
+    func getTileStatesViewModel() -> TileStatesViewModelImp {
         let viewModel = TileStatesViewModelImp()
         viewModel.tappedState = { tileState in
             self.pointState = tileState
             self.gridViewModel.didTapStateOnTile(state: tileState)
+            self.selections = self.gridViewModel.markedTiles
         }
-        return TileStatesView(tileStatesVM: viewModel)
+        return viewModel
     }
     
     func displayGrid() -> [Detail]? {
         if player == nil || didChangeGrid {
             grid = updateGridList()
+            didChangeGrid = false
             return grid
         } else {
             return player?.grid
@@ -101,6 +99,10 @@ class PlayerViewModelImp: PlayerViewModel {
             detail = gameObject.mode?.hard
         }
         
+        if didChangeGrid {
+            selections = [:]
+        }
+        
         player?.grid = detail
         grid = detail
         return detail
@@ -111,10 +113,12 @@ class PlayerViewModelImp: PlayerViewModel {
             player.name = name
             player.gameMode = difficultyMode
             player.grid = grid
+            player.selections = selections
             setPlayerDetails?(player)
         } else {
             var player = Player(name: name, gameMode: difficultyMode)
             player.grid = grid
+            player.selections = selections
             setPlayerDetails?(player)
         }
     }

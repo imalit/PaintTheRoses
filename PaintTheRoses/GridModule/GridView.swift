@@ -38,15 +38,14 @@ struct GridView<ViewModel>: View where ViewModel: GridViewModel {
                                     .frame(width: 35)
 
                                 ForEach(0..<attributes.count-x, id: \.self) { y in
-                                    Button(action: {
-                                        gridVM.tileTapped(x: x, y: y, z: gridNum)
-                                    }) {
-                                        ZStack {
-                                            Rectangle()
-                                                .fill(gridVM.displayState(x: x, y: y, z: gridNum))
-                                            Rectangle()
-                                                .strokeBorder(.gray , lineWidth: 1)
-                                        }
+                                    ZStack {
+                                        Rectangle()
+                                            .fill(gridVM.displayState(x: x, y: y, z: gridNum))
+                                            .onTapGesture {
+                                                gridVM.tileTapped(x: x, y: y, z: gridNum)
+                                            }
+                                        Rectangle()
+                                            .strokeBorder(.gray , lineWidth: 1)
                                     }.frame(width: 35, height: 35)
                                 }
                             }
@@ -61,7 +60,7 @@ struct GridView<ViewModel>: View where ViewModel: GridViewModel {
 
 struct GridView_Previews: PreviewProvider {
     static var previews: some View {
-        let gridVM = GridViewModelImp(grid: [])
+        let gridVM = GridViewModelImp(grid: [], selections: [:])
         GridView(gridVM: gridVM)
     }
 }

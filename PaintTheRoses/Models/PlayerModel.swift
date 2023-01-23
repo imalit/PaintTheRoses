@@ -28,6 +28,7 @@ struct Player: Identifiable {
     var name: String
     var gameMode: GameMode
     var grid: [Detail]? = nil
+    var selections: [GridPoint : TileState] = [:]
     
     init(name: String, gameMode: GameMode) {
         self.id = UUID()
