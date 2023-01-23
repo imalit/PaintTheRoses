@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E0725B04297EF3A400DD9E23 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0725B03297EF3A400DD9E23 /* KeyboardAdaptive.swift */; };
 		E0ADA7212975BD3C0084DD24 /* PaintTheRosesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ADA7202975BD3C0084DD24 /* PaintTheRosesApp.swift */; };
 		E0ADA7232975BD3C0084DD24 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ADA7222975BD3C0084DD24 /* ContentView.swift */; };
 		E0ADA7252975BD3C0084DD24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ADA7242975BD3C0084DD24 /* Assets.xcassets */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E0725B03297EF3A400DD9E23 /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		E0ADA71D2975BD3C0084DD24 /* PaintTheRoses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaintTheRoses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0ADA7202975BD3C0084DD24 /* PaintTheRosesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintTheRosesApp.swift; sourceTree = "<group>"; };
 		E0ADA7222975BD3C0084DD24 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				E0ADA7372975C5C70084DD24 /* Constants.swift */,
-				E0725B03297EF3A400DD9E23 /* KeyboardAdaptive.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -239,7 +236,6 @@
 				E0D4532E2979A3E50011F1D1 /* GridViewModel.swift in Sources */,
 				E0ADA7352975C5450084DD24 /* Service.swift in Sources */,
 				E0ADA7302975C3270084DD24 /* GameModel.swift in Sources */,
-				E0725B04297EF3A400DD9E23 /* KeyboardAdaptive.swift in Sources */,
 				E0ADA7212975BD3C0084DD24 /* PaintTheRosesApp.swift in Sources */,
 				E0D453282979925F0011F1D1 /* GridView.swift in Sources */,
 				E0ADA73C2975D3240084DD24 /* PlayerModel.swift in Sources */,
