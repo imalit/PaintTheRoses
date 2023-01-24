@@ -24,18 +24,16 @@ struct PlayerView<ViewModel: PlayerViewModel>: View {
                     Text("Hard").tag(GameMode.hard)
                 }
                 .padding([.trailing])
-            }.padding([.top],50)
+            }.padding([.top],25)
             Spacer()
             GridView(
                 gridVM: playerVM.getGridViewModel()
             )
-            .padding([.top, .bottom], 50)
-            .background(Constants.mintGreen)
             Spacer()
             TileStatesView(
                 tileStatesVM: playerVM.getTileStatesViewModel()
             )
-            .padding([.bottom], 50)
+            .padding([.bottom], 25)
         }
         .onDisappear{
             playerVM.sendPlayerDetails()
