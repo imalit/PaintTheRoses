@@ -13,35 +13,37 @@ struct PlayerView<ViewModel: PlayerViewModel>: View {
     @State var mode: GameMode = .easy
     
     var body: some View {
-        VStack {
-            HStack {
-                TextField("Enter Player Name", text: $playerVM.name)
-                    .padding([.leading])
-                    .font(.title)
-                Picker("Mode", selection: $playerVM.difficultyMode) {
-                    Text("Easy").tag(GameMode.easy)
-                    Text("Medium").tag(GameMode.medium)
-                    Text("Hard").tag(GameMode.hard)
-                }
-                .padding([.trailing])
-            }.padding([.top],25)
-            Spacer()
-            GridView(
-                gridVM: playerVM.getGridViewModel()
-            )
-            Spacer()
-            TileStatesView(
-                tileStatesVM: playerVM.getTileStatesViewModel()
-            )
-            .padding([.bottom], 25)
+        GeometryReader { _ in
+            VStack {
+                HStack {
+                    TextField("Enter Player Name", text: $playerVM.name)
+                        .padding([.leading])
+                        .font(.title)
+                    Picker("Mode", selection: $playerVM.difficultyMode) {
+                        Text("Easy").tag(GameMode.easy)
+                        Text("Medium").tag(GameMode.medium)
+                        Text("Hard").tag(GameMode.hard)
+                    }
+                    .padding([.trailing])
+                }.padding([.top],25)
+                Spacer()
+                GridView(
+                    gridVM: playerVM.getGridViewModel()
+                )
+                Spacer()
+                TileStatesView(
+                    tileStatesVM: playerVM.getTileStatesViewModel()
+                )
+                .padding([.bottom], 25)
+            }
+            .onDisappear{
+                playerVM.sendPlayerDetails()
+            }
+            .onAppear {
+                playerVM.loadData(service: GameService())
+            }
+            .ignoresSafeArea(.keyboard, edges: .bottom)
         }
-        .onDisappear{
-            playerVM.sendPlayerDetails()
-        }
-        .onAppear {
-            playerVM.loadData(service: GameService())
-        }
-        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }
 
