@@ -73,6 +73,7 @@ class PlayerViewModelImp: PlayerViewModel {
             self.pointState = tileState
             self.gridViewModel.didTapStateOnTile(state: tileState)
             self.selections = self.gridViewModel.markedTiles
+            self.gridViewModel.isTileTapped = false
         }
         return viewModel
     }

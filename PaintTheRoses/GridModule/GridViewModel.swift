@@ -12,15 +12,18 @@ protocol GridViewModel: ObservableObject {
     var grid: [Detail]? { get set }
     var tappedGridPoint: ((GridPoint) -> ())? { get set }
     var markedTiles: [GridPoint : TileState] { get set }
+    var isTileTapped: Bool { get set }
     func tileTapped(x: Int, y:Int, z: Int)
     func didTapStateOnTile(state: TileState)
     func displayState(x: Int, y: Int, z: Int) -> Color
+    func borderColor(x: Int, y: Int, z: Int) -> Color
 }
 
 class GridViewModelImp: GridViewModel {
     @Published var grid: [Detail]?
     @Published var markedTiles: [GridPoint : TileState] = [:]
-
+    @Published var isTileTapped: Bool = false
+    
     var tappedGridPoint: ((GridPoint) -> ())? = nil
     private var tappedPoint: GridPoint? = nil
     
@@ -64,6 +67,10 @@ class GridViewModelImp: GridViewModel {
             }
         }
         return Constants.mintGreen
+    }
+    
+    func borderColor(x: Int, y: Int, z: Int) -> Color {
+        return (tappedPoint == GridPoint(x: x, y: y, z: z) && isTileTapped) ? .black : .gray
     }
 }
 

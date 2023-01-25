@@ -10,7 +10,6 @@ import SwiftUI
 struct GridTile<ViewModel>: View where ViewModel: GridViewModel {
     
     @ObservedObject var gridVM: ViewModel
-    @State var isTapped = false
     
     let x: Int
     let y: Int
@@ -23,19 +22,11 @@ struct GridTile<ViewModel>: View where ViewModel: GridViewModel {
                 .fill(gridVM.displayState(x: x, y: y, z: z))
                 .onTapGesture {
                     gridVM.tileTapped(x: x, y: y, z: z)
+                    gridVM.isTileTapped = true
                 }
-                .simultaneousGesture(
-                    DragGesture(minimumDistance: 0)
-                        .onChanged { _ in
-                            isTapped = true
-                        }
-                        .onEnded { _ in
-                            isTapped = false
-                        }
-                )
             Rectangle()
                 .strokeBorder(
-                    isTapped ? .black : .gray,
+                    gridVM.borderColor(x: x, y: y, z: z),
                     lineWidth: 1
                 )
         }.frame(
