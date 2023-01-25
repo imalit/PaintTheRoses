@@ -22,6 +22,8 @@
 		E0D4532E2979A3E50011F1D1 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D4532D2979A3E50011F1D1 /* GridViewModel.swift */; };
 		E0E76FBC2976E7EC00BF571A /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E76FBB2976E7EC00BF571A /* PlayerView.swift */; };
 		E0E76FBE2976E80100BF571A /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E76FBD2976E80100BF571A /* PlayerViewModel.swift */; };
+		E0F1662D298195EE00E87F8B /* GridTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1662C298195EE00E87F8B /* GridTileView.swift */; };
+		E0F1662F2981962600E87F8B /* ImageTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1662E2981962600E87F8B /* ImageTileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		E0D4532D2979A3E50011F1D1 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
 		E0E76FBB2976E7EC00BF571A /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		E0E76FBD2976E80100BF571A /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		E0F1662C298195EE00E87F8B /* GridTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTileView.swift; sourceTree = "<group>"; };
+		E0F1662E2981962600E87F8B /* ImageTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 			children = (
 				E0D4532D2979A3E50011F1D1 /* GridViewModel.swift */,
 				E0D453272979925F0011F1D1 /* GridView.swift */,
+				E0F1662C298195EE00E87F8B /* GridTileView.swift */,
+				E0F1662E2981962600E87F8B /* ImageTileView.swift */,
 			);
 			path = GridModule;
 			sourceTree = "<group>";
@@ -226,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0F1662F2981962600E87F8B /* ImageTileView.swift in Sources */,
 				E0D4532A2979961E0011F1D1 /* TileStatesView.swift in Sources */,
 				E0E76FBE2976E80100BF571A /* PlayerViewModel.swift in Sources */,
 				E0D4532C29799FBD0011F1D1 /* TileStatesViewModel.swift in Sources */,
@@ -234,6 +241,7 @@
 				E0ADA7232975BD3C0084DD24 /* ContentView.swift in Sources */,
 				E0E76FBC2976E7EC00BF571A /* PlayerView.swift in Sources */,
 				E0D4532E2979A3E50011F1D1 /* GridViewModel.swift in Sources */,
+				E0F1662D298195EE00E87F8B /* GridTileView.swift in Sources */,
 				E0ADA7352975C5450084DD24 /* Service.swift in Sources */,
 				E0ADA7302975C3270084DD24 /* GameModel.swift in Sources */,
 				E0ADA7212975BD3C0084DD24 /* PaintTheRosesApp.swift in Sources */,
