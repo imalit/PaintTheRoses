@@ -36,5 +36,6 @@ struct TileStatesView_Previews: PreviewProvider {
     static var previews: some View {
         let vm = TileStatesViewModelImp()
         TileStatesView(tileStatesVM: vm)
+            .previewLayout(.sizeThatFits)
     }
 }

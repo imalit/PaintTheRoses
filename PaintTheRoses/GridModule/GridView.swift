@@ -10,7 +10,6 @@ import SwiftUI
 struct GridView<ViewModel>: View where ViewModel: GridViewModel {
     
     @ObservedObject var gridVM: ViewModel
-    @State var isPressed = false
     
     var body: some View {
         if let gridList = gridVM.grid {
@@ -58,7 +57,9 @@ struct GridView<ViewModel>: View where ViewModel: GridViewModel {
 
 struct GridView_Previews: PreviewProvider {
     static var previews: some View {
-        let gridVM = GridViewModelImp(grid: [], selections: [:])
+        let detail = Detail(attributes: ["clover", "yellow"], id: 1)
+        let gridVM = GridViewModelImp(grid: [detail], selections: [:])
         GridView(gridVM: gridVM)
+            .previewLayout(.sizeThatFits)
     }
 }

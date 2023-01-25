@@ -36,8 +36,10 @@ struct GridTile<ViewModel>: View where ViewModel: GridViewModel {
     }
 }
 
-//struct GridTileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GridTile()
-//    }
-//}
+struct GridTile_Previews: PreviewProvider {
+    static var previews: some View {
+        let gridVM = MockGridViewModel()
+        GridTile(gridVM: gridVM, x: 1, y: 1, z: 1, size: UIScreen.screenWidth/4)
+            .previewLayout(.sizeThatFits)
+    }
+}

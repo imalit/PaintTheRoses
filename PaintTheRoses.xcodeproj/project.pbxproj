@@ -24,6 +24,7 @@
 		E0E76FBE2976E80100BF571A /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E76FBD2976E80100BF571A /* PlayerViewModel.swift */; };
 		E0F1662D298195EE00E87F8B /* GridTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1662C298195EE00E87F8B /* GridTileView.swift */; };
 		E0F1662F2981962600E87F8B /* ImageTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1662E2981962600E87F8B /* ImageTileView.swift */; };
+		E0F166322981AEED00E87F8B /* MockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F166312981AEED00E87F8B /* MockViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		E0E76FBD2976E80100BF571A /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		E0F1662C298195EE00E87F8B /* GridTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTileView.swift; sourceTree = "<group>"; };
 		E0F1662E2981962600E87F8B /* ImageTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTileView.swift; sourceTree = "<group>"; };
+		E0F166312981AEED00E87F8B /* MockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		E0ADA71F2975BD3C0084DD24 /* PaintTheRoses */ = {
 			isa = PBXGroup;
 			children = (
+				E0F166302981AEBF00E87F8B /* Tests */,
 				E0D453302979A54F0011F1D1 /* TileStatesModule */,
 				E0D4532F2979A5430011F1D1 /* GridModule */,
 				E0E76FBA2976E7CE00BF571A /* PlayerModule */,
@@ -160,6 +163,14 @@
 				E0E76FBD2976E80100BF571A /* PlayerViewModel.swift */,
 			);
 			path = PlayerModule;
+			sourceTree = "<group>";
+		};
+		E0F166302981AEBF00E87F8B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E0F166312981AEED00E87F8B /* MockViewModel.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +257,7 @@
 				E0ADA7302975C3270084DD24 /* GameModel.swift in Sources */,
 				E0ADA7212975BD3C0084DD24 /* PaintTheRosesApp.swift in Sources */,
 				E0D453282979925F0011F1D1 /* GridView.swift in Sources */,
+				E0F166322981AEED00E87F8B /* MockViewModel.swift in Sources */,
 				E0ADA73C2975D3240084DD24 /* PlayerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

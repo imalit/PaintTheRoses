@@ -22,8 +22,9 @@ struct ImageTile: View {
     }
 }
 
-//struct ImageTileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ImageTileView()
-//    }
-//}
+struct ImageTileView_Previews: PreviewProvider {
+    static var previews: some View {
+        ImageTile(imageName: "hearts", size: UIScreen.screenWidth/4)
+            .previewLayout(.sizeThatFits)
+    }
+}
