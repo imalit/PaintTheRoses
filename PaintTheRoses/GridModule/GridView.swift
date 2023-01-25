@@ -10,6 +10,7 @@ import SwiftUI
 struct GridView<ViewModel>: View where ViewModel: GridViewModel {
     
     @ObservedObject var gridVM: ViewModel
+    @State var isPressed = false
     
     var body: some View {
         if let gridList = gridVM.grid {
@@ -25,38 +26,21 @@ struct GridView<ViewModel>: View where ViewModel: GridViewModel {
                     VStack (alignment: .leading) {
                         HStack {
                             ForEach(reversed.indices, id: \.self) { x in
-                                Image("\(reversed[x])")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(
-                                        width: size,
-                                        height: size
-                                    )
+                                ImageTile(imageName: reversed[x], size: size)
                             }
                         }.padding([.leading], size+8)
                         
                         ForEach(reversed.indices, id: \.self) { x in
                             HStack {
-                                Image("\(attributes[x])")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(
-                                        width: size,
-                                        height: size
-                                    )
+                                ImageTile(imageName: attributes[x], size: size)
 
                                 ForEach(0..<attributes.count-x, id: \.self) { y in
-                                    ZStack {
-                                        Rectangle()
-                                            .fill(gridVM.displayState(x: x, y: y, z: gridNum))
-                                            .onTapGesture {
-                                                gridVM.tileTapped(x: x, y: y, z: gridNum)
-                                            }
-                                        Rectangle()
-                                            .strokeBorder(.gray , lineWidth: 1)
-                                    }.frame(
-                                        width: size,
-                                        height: size
+                                    GridTile(
+                                        gridVM: gridVM,
+                                        x: x,
+                                        y: y,
+                                        z: gridNum,
+                                        size: size
                                     )
                                 }
                             }
@@ -69,6 +53,59 @@ struct GridView<ViewModel>: View where ViewModel: GridViewModel {
             .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight*0.70)
             .background(Constants.mintGreen)
         }
+    }
+}
+
+struct ImageTile: View {
+    let imageName: String
+    let size: CGFloat
+    
+    var body: some View {
+        Image(imageName)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(
+                width: size,
+                height: size
+            )
+    }
+}
+
+struct GridTile<ViewModel>: View where ViewModel: GridViewModel {
+    
+    @ObservedObject var gridVM: ViewModel
+    @State var isTapped = false
+    
+    let x: Int
+    let y: Int
+    let z: Int
+    let size: CGFloat
+    
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .fill(gridVM.displayState(x: x, y: y, z: z))
+                .onTapGesture {
+                    gridVM.tileTapped(x: x, y: y, z: z)
+                }
+                .simultaneousGesture(
+                    DragGesture(minimumDistance: 0)
+                        .onChanged { _ in
+                            isTapped = true
+                        }
+                        .onEnded { _ in
+                            isTapped = false
+                        }
+                )
+            Rectangle()
+                .strokeBorder(
+                    isTapped ? .black : .gray,
+                    lineWidth: 1
+                )
+        }.frame(
+            width: size,
+            height: size
+        )
     }
 }
 
