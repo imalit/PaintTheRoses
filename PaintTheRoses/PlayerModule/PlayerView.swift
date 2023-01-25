@@ -51,5 +51,6 @@ struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         let playerVM = PlayerViewModelImp(id: nil)
         PlayerView(playerVM: playerVM)
+            .previewLayout(.sizeThatFits)
     }
 }
