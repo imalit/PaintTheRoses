@@ -63,6 +63,7 @@
 		E0ADA7142975BD3C0084DD24 = {
 			isa = PBXGroup;
 			children = (
+				E0F166302981AEBF00E87F8B /* PaintTheRosesTests */,
 				E0ADA71F2975BD3C0084DD24 /* PaintTheRoses */,
 				E0ADA71E2975BD3C0084DD24 /* Products */,
 			);
@@ -79,7 +80,6 @@
 		E0ADA71F2975BD3C0084DD24 /* PaintTheRoses */ = {
 			isa = PBXGroup;
 			children = (
-				E0F166302981AEBF00E87F8B /* Tests */,
 				E0D453302979A54F0011F1D1 /* TileStatesModule */,
 				E0D4532F2979A5430011F1D1 /* GridModule */,
 				E0E76FBA2976E7CE00BF571A /* PlayerModule */,
@@ -165,12 +165,12 @@
 			path = PlayerModule;
 			sourceTree = "<group>";
 		};
-		E0F166302981AEBF00E87F8B /* Tests */ = {
+		E0F166302981AEBF00E87F8B /* PaintTheRosesTests */ = {
 			isa = PBXGroup;
 			children = (
 				E0F166312981AEED00E87F8B /* MockViewModel.swift */,
 			);
-			path = Tests;
+			path = PaintTheRosesTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
