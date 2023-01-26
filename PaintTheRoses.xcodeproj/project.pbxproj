@@ -20,12 +20,41 @@
 		E0D4532A2979961E0011F1D1 /* TileStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D453292979961E0011F1D1 /* TileStatesView.swift */; };
 		E0D4532C29799FBD0011F1D1 /* TileStatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D4532B29799FBD0011F1D1 /* TileStatesViewModel.swift */; };
 		E0D4532E2979A3E50011F1D1 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D4532D2979A3E50011F1D1 /* GridViewModel.swift */; };
+		E0E283632982C00D0090243C /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E283622982C00D0090243C /* HomeViewModelTest.swift */; };
+		E0E2836A2982C01B0090243C /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E2835A2982BF6A0090243C /* ServiceTest.swift */; };
+		E0E2836C2982C0840090243C /* MockViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E2836B2982C0840090243C /* MockViewModels.swift */; };
+		E0E2836D2982C0840090243C /* MockViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E2836B2982C0840090243C /* MockViewModels.swift */; };
+		E0E2836F2982C0990090243C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ADA7342975C5450084DD24 /* Service.swift */; };
+		E0E283702982C2080090243C /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ADA72F2975C3270084DD24 /* GameModel.swift */; };
+		E0E283712982C94C0090243C /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D4532D2979A3E50011F1D1 /* GridViewModel.swift */; };
+		E0E283722982C9500090243C /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E76FBD2976E80100BF571A /* PlayerViewModel.swift */; };
+		E0E283732982C9540090243C /* TileStatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D4532B29799FBD0011F1D1 /* TileStatesViewModel.swift */; };
+		E0E283742982C9630090243C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ADA7372975C5C70084DD24 /* Constants.swift */; };
+		E0E283752982C9690090243C /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ADA73B2975D3240084DD24 /* PlayerModel.swift */; };
+		E0E2837A2982CD1F0090243C /* PlayerViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E283792982CD1F0090243C /* PlayerViewModelTest.swift */; };
+		E0E2837B2982CEAC0090243C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ADA7392975CD990084DD24 /* HomeViewModel.swift */; };
+		E0E2837C2982D1D70090243C /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E76FBB2976E7EC00BF571A /* PlayerView.swift */; };
+		E0E2837D2982D2430090243C /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D453272979925F0011F1D1 /* GridView.swift */; };
+		E0E2837E2982D2470090243C /* TileStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D453292979961E0011F1D1 /* TileStatesView.swift */; };
+		E0E2837F2982D24C0090243C /* GridTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1662C298195EE00E87F8B /* GridTileView.swift */; };
+		E0E283802982D24F0090243C /* ImageTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1662E2981962600E87F8B /* ImageTileView.swift */; };
+		E0E283812982D2570090243C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ADA7222975BD3C0084DD24 /* ContentView.swift */; };
+		E0E283832982F4900090243C /* GridViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E283822982F4900090243C /* GridViewModelTest.swift */; };
 		E0E76FBC2976E7EC00BF571A /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E76FBB2976E7EC00BF571A /* PlayerView.swift */; };
 		E0E76FBE2976E80100BF571A /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E76FBD2976E80100BF571A /* PlayerViewModel.swift */; };
 		E0F1662D298195EE00E87F8B /* GridTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1662C298195EE00E87F8B /* GridTileView.swift */; };
 		E0F1662F2981962600E87F8B /* ImageTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F1662E2981962600E87F8B /* ImageTileView.swift */; };
-		E0F166322981AEED00E87F8B /* MockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F166312981AEED00E87F8B /* MockViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E0E283642982C00D0090243C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0ADA7152975BD3C0084DD24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0ADA71C2975BD3C0084DD24;
+			remoteInfo = PaintTheRoses;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E0ADA71D2975BD3C0084DD24 /* PaintTheRoses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaintTheRoses.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,15 +71,27 @@
 		E0D453292979961E0011F1D1 /* TileStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileStatesView.swift; sourceTree = "<group>"; };
 		E0D4532B29799FBD0011F1D1 /* TileStatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileStatesViewModel.swift; sourceTree = "<group>"; };
 		E0D4532D2979A3E50011F1D1 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
+		E0E2835A2982BF6A0090243C /* ServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTest.swift; sourceTree = "<group>"; };
+		E0E283602982C00D0090243C /* PaintTheRosesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaintTheRosesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0E283622982C00D0090243C /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
+		E0E2836B2982C0840090243C /* MockViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewModels.swift; sourceTree = "<group>"; };
+		E0E283792982CD1F0090243C /* PlayerViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModelTest.swift; sourceTree = "<group>"; };
+		E0E283822982F4900090243C /* GridViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModelTest.swift; sourceTree = "<group>"; };
 		E0E76FBB2976E7EC00BF571A /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		E0E76FBD2976E80100BF571A /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		E0F1662C298195EE00E87F8B /* GridTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTileView.swift; sourceTree = "<group>"; };
 		E0F1662E2981962600E87F8B /* ImageTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTileView.swift; sourceTree = "<group>"; };
-		E0F166312981AEED00E87F8B /* MockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E0ADA71A2975BD3C0084DD24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0E2835D2982C00D0090243C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,8 +104,8 @@
 		E0ADA7142975BD3C0084DD24 = {
 			isa = PBXGroup;
 			children = (
-				E0F166302981AEBF00E87F8B /* PaintTheRosesTests */,
 				E0ADA71F2975BD3C0084DD24 /* PaintTheRoses */,
+				E0E283612982C00D0090243C /* PaintTheRosesTests */,
 				E0ADA71E2975BD3C0084DD24 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				E0ADA71D2975BD3C0084DD24 /* PaintTheRoses.app */,
+				E0E283602982C00D0090243C /* PaintTheRosesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +198,18 @@
 			path = TileStatesModule;
 			sourceTree = "<group>";
 		};
+		E0E283612982C00D0090243C /* PaintTheRosesTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0E2835A2982BF6A0090243C /* ServiceTest.swift */,
+				E0E283622982C00D0090243C /* HomeViewModelTest.swift */,
+				E0E2836B2982C0840090243C /* MockViewModels.swift */,
+				E0E283792982CD1F0090243C /* PlayerViewModelTest.swift */,
+				E0E283822982F4900090243C /* GridViewModelTest.swift */,
+			);
+			path = PaintTheRosesTests;
+			sourceTree = "<group>";
+		};
 		E0E76FBA2976E7CE00BF571A /* PlayerModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,14 +217,6 @@
 				E0E76FBD2976E80100BF571A /* PlayerViewModel.swift */,
 			);
 			path = PlayerModule;
-			sourceTree = "<group>";
-		};
-		E0F166302981AEBF00E87F8B /* PaintTheRosesTests */ = {
-			isa = PBXGroup;
-			children = (
-				E0F166312981AEED00E87F8B /* MockViewModel.swift */,
-			);
-			path = PaintTheRosesTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +239,24 @@
 			productReference = E0ADA71D2975BD3C0084DD24 /* PaintTheRoses.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E0E2835F2982C00D0090243C /* PaintTheRosesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0E283662982C00D0090243C /* Build configuration list for PBXNativeTarget "PaintTheRosesTests" */;
+			buildPhases = (
+				E0E2835C2982C00D0090243C /* Sources */,
+				E0E2835D2982C00D0090243C /* Frameworks */,
+				E0E2835E2982C00D0090243C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0E283652982C00D0090243C /* PBXTargetDependency */,
+			);
+			name = PaintTheRosesTests;
+			productName = PaintTheRosesTests;
+			productReference = E0E283602982C00D0090243C /* PaintTheRosesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,6 +269,10 @@
 				TargetAttributes = {
 					E0ADA71C2975BD3C0084DD24 = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					E0E2835F2982C00D0090243C = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = E0ADA71C2975BD3C0084DD24;
 					};
 				};
 			};
@@ -222,6 +290,7 @@
 			projectRoot = "";
 			targets = (
 				E0ADA71C2975BD3C0084DD24 /* PaintTheRoses */,
+				E0E2835F2982C00D0090243C /* PaintTheRosesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,6 +302,13 @@
 			files = (
 				E0ADA7282975BD3C0084DD24 /* Preview Assets.xcassets in Resources */,
 				E0ADA7252975BD3C0084DD24 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0E2835E2982C00D0090243C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,18 +327,52 @@
 				E0ADA73A2975CD990084DD24 /* HomeViewModel.swift in Sources */,
 				E0ADA7232975BD3C0084DD24 /* ContentView.swift in Sources */,
 				E0E76FBC2976E7EC00BF571A /* PlayerView.swift in Sources */,
+				E0E2836C2982C0840090243C /* MockViewModels.swift in Sources */,
 				E0D4532E2979A3E50011F1D1 /* GridViewModel.swift in Sources */,
 				E0F1662D298195EE00E87F8B /* GridTileView.swift in Sources */,
 				E0ADA7352975C5450084DD24 /* Service.swift in Sources */,
 				E0ADA7302975C3270084DD24 /* GameModel.swift in Sources */,
 				E0ADA7212975BD3C0084DD24 /* PaintTheRosesApp.swift in Sources */,
 				E0D453282979925F0011F1D1 /* GridView.swift in Sources */,
-				E0F166322981AEED00E87F8B /* MockViewModel.swift in Sources */,
 				E0ADA73C2975D3240084DD24 /* PlayerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E0E2835C2982C00D0090243C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0E2837A2982CD1F0090243C /* PlayerViewModelTest.swift in Sources */,
+				E0E283752982C9690090243C /* PlayerModel.swift in Sources */,
+				E0E283712982C94C0090243C /* GridViewModel.swift in Sources */,
+				E0E283702982C2080090243C /* GameModel.swift in Sources */,
+				E0E2837E2982D2470090243C /* TileStatesView.swift in Sources */,
+				E0E283732982C9540090243C /* TileStatesViewModel.swift in Sources */,
+				E0E283632982C00D0090243C /* HomeViewModelTest.swift in Sources */,
+				E0E2836F2982C0990090243C /* Service.swift in Sources */,
+				E0E2837C2982D1D70090243C /* PlayerView.swift in Sources */,
+				E0E2837B2982CEAC0090243C /* HomeViewModel.swift in Sources */,
+				E0E2836A2982C01B0090243C /* ServiceTest.swift in Sources */,
+				E0E2837D2982D2430090243C /* GridView.swift in Sources */,
+				E0E2837F2982D24C0090243C /* GridTileView.swift in Sources */,
+				E0E283722982C9500090243C /* PlayerViewModel.swift in Sources */,
+				E0E283812982D2570090243C /* ContentView.swift in Sources */,
+				E0E2836D2982C0840090243C /* MockViewModels.swift in Sources */,
+				E0E283742982C9630090243C /* Constants.swift in Sources */,
+				E0E283802982D24F0090243C /* ImageTileView.swift in Sources */,
+				E0E283832982F4900090243C /* GridViewModelTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E0E283652982C00D0090243C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0ADA71C2975BD3C0084DD24 /* PaintTheRoses */;
+			targetProxy = E0E283642982C00D0090243C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E0ADA7292975BD3C0084DD24 /* Debug */ = {
@@ -437,6 +547,42 @@
 			};
 			name = Release;
 		};
+		E0E283672982C00D0090243C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NNZP58UQQ9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.PaintTheRosesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PaintTheRoses.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PaintTheRoses";
+			};
+			name = Debug;
+		};
+		E0E283682982C00D0090243C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NNZP58UQQ9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.PaintTheRosesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PaintTheRoses.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PaintTheRoses";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -454,6 +600,15 @@
 			buildConfigurations = (
 				E0ADA72C2975BD3C0084DD24 /* Debug */,
 				E0ADA72D2975BD3C0084DD24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0E283662982C00D0090243C /* Build configuration list for PBXNativeTarget "PaintTheRosesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0E283672982C00D0090243C /* Debug */,
+				E0E283682982C00D0090243C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

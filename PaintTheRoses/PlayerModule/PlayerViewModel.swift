@@ -126,7 +126,6 @@ class PlayerViewModelImp: PlayerViewModel {
 
     func loadData(service: Service) {
         cancellable = service.fetchData()
-            .receive(on: RunLoop.main)
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { game in

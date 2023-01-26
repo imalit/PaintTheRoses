@@ -30,3 +30,27 @@ class MockGridViewModel: GridViewModel {
         return .black
     }
 }
+
+struct MockPlayers: PlayersProtocol {
+    static var players: [Player] = []
+    
+    static func getPlayer(id: UUID) -> Player? {
+        guard let player = players.first(where: {
+            $0.id == id
+        }) else { return nil }
+        return player
+    }
+    
+    static func updatePlayers(player: Player) {
+        if let row = players.firstIndex(where: {$0.id == player.id}) {
+            players[row] = player
+        } else {
+            players.append(player)
+        }
+    }
+    
+    static func removePlayers(atOffsets: IndexSet) {
+        players.remove(atOffsets: atOffsets)
+    }
+}
+

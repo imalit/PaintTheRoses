@@ -3,4 +3,54 @@
    uuid = "C9BD0C9B-FB5C-4A7B-9BA8-8CA42A2F4180"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8A61AA7F-5D3E-414A-91E4-B93E7B64DA96"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PaintTheRosesTests/GridViewModelTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "testDidTapTileOnState()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8A61AA7F-5D3E-414A-91E4-B93E7B64DA96 - c9606d3b33f31466"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PaintTheRosesTests.GridViewModelTest.testDidTapTileOnState() -&gt; ()"
+                  moduleName = "PaintTheRosesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isimalit/Bench%20Apps/PaintTheRoses/PaintTheRoses/PaintTheRosesTests/GridViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1020">
+               </Location>
+               <Location
+                  uuid = "8A61AA7F-5D3E-414A-91E4-B93E7B64DA96 - c9606d3b33f31466"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PaintTheRosesTests.GridViewModelTest.testDidTapTileOnState() -&gt; ()"
+                  moduleName = "PaintTheRosesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isimalit/Bench%20Apps/PaintTheRoses/PaintTheRoses/PaintTheRosesTests/GridViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1356">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

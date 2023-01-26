@@ -30,7 +30,16 @@ enum Constants {
     )
 }
 
-struct Players {
+protocol PlayersProtocol {
+    static var players: [Player] { get set }
+    
+    static func getPlayer(id: UUID) -> Player?
+    static func updatePlayers(player: Player)
+    static func removePlayers(atOffsets: IndexSet)
+}
+
+
+struct Players: PlayersProtocol {
     static var players: [Player] = []
     
     static func getPlayer(id: UUID) -> Player? {

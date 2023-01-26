@@ -10,6 +10,7 @@ import SwiftUI
 
 protocol HomeViewModel: ObservableObject {
     var players: [Player] { get set }
+    func updatePlayer(player: Player)
     func newGame()
     func delete(indexSet: IndexSet)
     
@@ -38,7 +39,7 @@ class HomeViewModelImp: HomeViewModel {
         Players.removePlayers(atOffsets: indexSet)
     }
     
-    private func updatePlayer(player: Player) {
+    func updatePlayer(player: Player) {
         if let row = self.players.firstIndex(where: {$0.id == player.id}) {
             players[row] = player
         } else {
