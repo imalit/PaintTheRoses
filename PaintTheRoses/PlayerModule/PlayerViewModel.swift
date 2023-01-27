@@ -10,19 +10,21 @@ import Combine
 import SwiftUI
 
 protocol PlayerViewModel: ObservableObject {
-    func getGridViewModel() -> GridViewModelImp
-    func getTileStatesViewModel() -> TileStatesViewModelImp
+    associatedtype GridVM: GridViewModel
+    func getGridViewModel() -> GridVM
     
-    var name: String { get set }
-    var difficultyMode: GameMode { get set }
-    var gameObject: Game { get set }
-    
-    var setPlayerDetails: ((Player)->Void)? { get set }
-    var player: Player? { get set }
+    associatedtype TileStatesVM: TileStatesViewModel
+    func getTileStatesViewModel() -> TileStatesVM
     
     func sendPlayerDetails()
     func loadData(service: Service)
     func displayGrid() -> [Detail]?
+    
+    var name: String { get set }
+    var difficultyMode: GameMode { get set }
+    var gameObject: Game { get set }
+    var setPlayerDetails: ((Player)->Void)? { get set }
+    var player: Player? { get set }
 }
 
 class PlayerViewModelImp: PlayerViewModel {
@@ -62,12 +64,12 @@ class PlayerViewModelImp: PlayerViewModel {
         }
     }
     
-    func getGridViewModel() -> GridViewModelImp {
+    func getGridViewModel() -> some GridViewModel {
         gridViewModel = GridViewModelImp(grid: displayGrid(), selections: selections)
         return gridViewModel
     }
     
-    func getTileStatesViewModel() -> TileStatesViewModelImp {
+    func getTileStatesViewModel() -> some TileStatesViewModel {
         let viewModel = TileStatesViewModelImp()
         viewModel.tappedState = { tileState in
             self.pointState = tileState
